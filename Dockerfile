@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM --platform=linux/amd64 python:3.11
 
 WORKDIR /app
 
@@ -10,4 +10,4 @@ RUN pip install --no-cache-dir poetry && \
 
 COPY . .
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port $PORT"]
