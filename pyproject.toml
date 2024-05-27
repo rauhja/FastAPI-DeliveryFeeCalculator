@@ -8,7 +8,7 @@ packages = [{include = "app"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.111.0"
-uvicorn = "^0.29.0"
+uvicorn = {extras = ["standard"], version = "^0.29.0"}
 pydantic = "^2.7.1"
 invoke = "^2.2.0"
 
@@ -17,7 +17,7 @@ pytest = "^8.2.1"
 coverage = "^7.5.2"
 
 [tool.poetry.scripts]
-generate-requirements = "poetry export -f requirements.txt --output requirements.txt --without-hashes"
+generate-requirements = "generate_requirements:main"
 
 [build-system]
 requires = ["poetry-core"]
