@@ -1,23 +1,21 @@
 [tool.poetry]
-name = "fastapi-deliveryfeecalculator"
+name = "wolt-deliveyfeecalculator"
 version = "0.1.0"
 description = ""
-authors = ["rauhja <82282638+rauhja@users.noreply.github.com>"]
-packages = [{include = "app"}]
+authors = ["Jarkko Rauhala"]
+readme = "README.md"
+packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-fastapi = "^0.111.0"
-uvicorn = {extras = ["standard"], version = "^0.29.0"}
-pydantic = "^2.7.1"
+python = ">=3.10,<3.13"
 invoke = "^2.2.0"
+fastapi = "^0.109.0"
+uvicorn = {extras = ["standard"], version = "^0.26.0"}
+pydantic = "^2.5.3"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.2.1"
-coverage = "^7.5.2"
-
-[tool.poetry.scripts]
-generate-requirements = "generate_requirements:main"
+pytest = "^7.4.3"
+coverage = "^7.3.2"
 
 [build-system]
 requires = ["poetry-core"]
