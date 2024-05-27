@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "fastapi-deliveryfeecalculator"
+version = "0.1.0"
+description = ""
+authors = ["rauhja <82282638+rauhja@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.111.0"
+uvicorn = "^0.29.0"
+pydantic = "^2.7.1"
+invoke = "^2.2.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.1"
+coverage = "^7.5.2"
+
+[tool.poetry.scripts]
+generate-requirements = "poetry export -f requirements.txt --output requirements.txt --without-hashes"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
