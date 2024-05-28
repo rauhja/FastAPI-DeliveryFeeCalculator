@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "wolt-deliveyfeecalculator"
+name = "deliveryfeecalculator"
 version = "0.1.0"
 description = ""
 authors = ["Jarkko Rauhala"]
