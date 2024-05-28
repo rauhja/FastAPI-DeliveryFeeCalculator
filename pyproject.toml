@@ -3,7 +3,6 @@ name = "deliveryfeecalculator"
 version = "0.1.0"
 description = ""
 authors = ["Jarkko Rauhala"]
-readme = "README.md"
 packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
@@ -14,9 +13,38 @@ uvicorn = {extras = ["standard"], version = "^0.26.0"}
 pydantic = "^2.5.3"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.4.3"
-coverage = "^7.3.2"
+pytest = "^8.2.1"
+pytest-cov = "^5.0.0"
+mypy = "^1.10.0"
+ruff = "^0.4.5"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+    "W191",  # indentation contains tabs
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.ruff.lint.isort]
+known-third-party = ["fastapi", "pydantic", "starlette"]
+
+[tool.ruff.lint.pyupgrade]
+# Preserve types, even if a file imports `from __future__ import annotations`.
+keep-runtime-typing = true
