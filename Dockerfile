@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 python:3.12.0-alpine AS builder
+FROM --platform=linux/amd64 python:3.12.3-alpine AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY pyproject.toml poetry.lock ./
 
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 
-FROM --platform=linux/amd64 python:3.12.0-alpine
+FROM --platform=linux/amd64 python:3.12.3-alpine
 
 WORKDIR /app
 

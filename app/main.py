@@ -28,7 +28,9 @@ app = FastAPI()
 
 @app.get("/")
 def read_root() -> dict:
-    return {"Hello": "World"}
+    return {
+        "Hello": "Welcome to the delivery fee calculator! This is created for learning purposes only. Please use it responsibly."
+    }
 
 
 @app.post("/calculate_delivery_fee", response_model=FeeResponse)
