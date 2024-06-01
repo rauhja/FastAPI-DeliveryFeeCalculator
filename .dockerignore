@@ -2,12 +2,13 @@
 .gitignore
 
 Dockerfile
+docker-compose.yml
+.dockerignore
 
-__pycache__
-*.pyc
-*.pyo
-*.pyd
-*.egg-info
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
 dist
 build
 
