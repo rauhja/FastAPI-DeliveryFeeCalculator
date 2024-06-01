@@ -9,7 +9,7 @@ RUN apk update && apk add --no-cache \
 COPY . .
 
 RUN poetry config virtualenvs.create false && \
-    poetry install --no-interaction --no-ansi --only main
+    poetry install --no-interaction --no-ansi --no-dev
 
 FROM --platform=linux/amd64 python:3.12.0-alpine
 
@@ -24,4 +24,4 @@ USER appuser
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8080}"]
+CMD ["sh", "-c", "python -m uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8080}"]
