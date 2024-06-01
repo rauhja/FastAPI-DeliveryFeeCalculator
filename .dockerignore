@@ -19,3 +19,5 @@ ruff_cache
 
 logs
 tmp
+
+tests
